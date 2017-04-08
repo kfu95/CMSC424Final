@@ -14,9 +14,9 @@ app.get('/events', function (req, res) {
 
 
    var response = {
-      venue:req.query.venues,
+      venue:req.query.venue,
       startdate:req.query.startdate,
-      endMonth:req.query.enddate
+      enddate:req.query.enddate
    };
    console.log(req.query);
    console.log(res);
@@ -26,7 +26,7 @@ app.get('/events', function (req, res) {
    
 })
 
-var server = app.listen(8081, function () {
+var server = app.listen(process.env.PORT, function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)

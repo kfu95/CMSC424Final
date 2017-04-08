@@ -34,14 +34,14 @@
   		</div>
   		<div id="venues-text">
 			<h2>Which venue will you be going to?</h2>
-			<form action = "http://127.0.0.1:8081/events" method = "GET">
-			<input id="venue-name" type="text" placeholder="Venue Name"/>
+			<form action = "/events" method = "GET">
+			<input id="venue-name" name='venue' id='venue' type="text" placeholder="Venue Name"/>
 			<!-- <span class="input input--haruki">
 			<!-- <h2>Which venue will you be going to?</h2> -->
 			
 			<h2>What range of dates are you considering?</h2>
-			<h3>Start Date:</h3><input id="start-date" type="date"/>
-			<h3>End Date:</h3><input id="end-date" type="date"/>
+			<h3>Start Date:</h3><input name='startdate' id="start-date" type="date"/>
+			<h3>End Date:</h3><input name='enddate' id="end-date" type="date"/>
 			</br>
 			</br>
 			</br>
