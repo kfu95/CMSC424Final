@@ -8,7 +8,6 @@ $(document).ready(function() {
 	        scrollTop: $(".venues").offset().top},
 	        'slow');
 	});
-
 });
 
 function callbackFunction( data ) {
