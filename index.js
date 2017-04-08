@@ -11,17 +11,27 @@ app.get('/Bitcamp.html', function (req, res) {
 
 app.get('/events', function (req, res) {
    // Prepare output in JSON format
-
+   var venue = req.query.venue;
+   var startdate = req.query.startdate;
+   var enddate = req.query.enddate
 
    var response = {
-      venue:req.query.venue,
-      startdate:req.query.startdate,
-      enddate:req.query.enddate
+      venue:venue,
+      startdate:startdate,
+      enddate:enddate
    };
    console.log(req.query);
    console.log(res);
    console.log(response);
-   res.end(JSON.stringify(response));
+   
+   var spawn = require("child_process").spawn;
+   var process = spawn('python',["BACKEND.py", venue, startdate, enddate]);
+   
+   process.stdout.on('data', function (data){
+      res.end(data.toString());
+   });
+   
+   //res.end(JSON.stringify(response));
    
    
 })
