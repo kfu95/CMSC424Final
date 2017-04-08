@@ -1,6 +1,9 @@
 import json,requests
 
-#getting the artist's songkick ID
+#getting the artist's songkick ID:
+
+#given an artist's name as a string,
+#search for the artist's ID and return it
 def get_artist_id(artistName):
     #base URL
     url = 'http://api.songkick.com/api/3.0/search/artists.json?'
@@ -20,7 +23,12 @@ def get_artist_id(artistName):
     return artist_id
 
 
-#getting an artist's event calendar 
+#getting an artist's event calendar: 
+
+# given an artist's songkick ID, 
+# make a dict/hash of data for each event 
+# that the artist is playing at,
+# and return a list of those dicts/hashes. 
 def get_events_for_artist(artistid):
     #base URL
     url = 'http://api.songkick.com/api/3.0/artists/' + str(artistid) + '/calendar.json?apikey=s9TgD3sUNEyDRjbc'
@@ -31,8 +39,9 @@ def get_events_for_artist(artistid):
     #list to store events 
     events_arr = []
     
+    #looping through the events the artist is playing at
     for event in data['resultsPage']['results']['event']:
-        #if a concert, store the event's data in a dict
+        #if event is a concert, store the event's data in a dict
         if event['type'] == "Concert": 
             displayName = event['displayName']
             location = event['location']['city']
