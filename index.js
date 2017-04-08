@@ -7,14 +7,16 @@ app.get('/Bitcamp.html', function (req, res) {
    res.sendFile( __dirname + "/" + "Bitcamp.html" );
 })
 
-app.get('/process_get', function (req, res) {
+app.get('/events', function (req, res) {
    // Prepare output in JSON format
-   response = {
+   var response = {
       venue:req.query.venues,
       
    };
    console.log(response);
    res.end(JSON.stringify(response));
+   
+   
 })
 
 var server = app.listen(8081, function () {

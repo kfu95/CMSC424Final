@@ -1,10 +1,14 @@
-import json, requests
+import json, requests, sys
 
 # Get venue list
 
-def stripData(objs):
-    return (objs['displayName'],objs['id'],objs['metroArea']['id'])
+# Given a venue JSON object, return 
+# a tuple of the venue name, id, and metro id
+def stripData(venue):
+    return (venue['displayName'],venue['id'],venue['metroArea']['id'])
     
+# Given a venue search query, return a list of
+# venue tuples for all possible matches
 def getVenues(query):
     url = 'http://api.songkick.com/api/3.0/search/venues.json?'
     
@@ -27,6 +31,8 @@ venue = getVenues('930+Club')[0]
 
 # Now, get the events at this venue
 
+# Given a venue id and a list of events, return the
+# concerts at this venue
 def getConcertsAtVenue(venue_id, events):
     result = []
     for event in events:
@@ -34,9 +40,12 @@ def getConcertsAtVenue(venue_id, events):
             result.append((event['displayName'],event['id'],event['performance']))
     return result
     
+# For the venue, get a list of events
 def getEvents(venue):
     url = 'http://api.songkick.com/api/3.0/venues/' + str(venue[1]) + '/calendar.json?'
     
+    # Max query of 50 events at a time, but
+    # let's try to look at all possible events
     page = 1
     
     params = dict(
@@ -49,6 +58,8 @@ def getEvents(venue):
     
     events = getConcertsAtVenue(venue[1],data['resultsPage']['results']['event'])
     
+    # While there are more events to see,
+    # see em
     while (page * 50 < data['resultsPage']['totalEntries']):
         page = page + 1
         params = dict(
@@ -70,6 +81,7 @@ concerts = getEvents(venue)
 
 # now find the artists playing at these events
 
+# Get the artists at these concerts
 def getArtists(concerts):
     artists = []
     

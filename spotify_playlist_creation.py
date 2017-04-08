@@ -1,4 +1,4 @@
-import json,requests
+import json,requests,sys
 
 def getArtistSpotifyId(artist_name,auth):
     url = 'https://api.spotify.com/v1/search?'
