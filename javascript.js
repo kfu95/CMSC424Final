@@ -8,6 +8,10 @@ $(document).ready(function() {
 	        scrollTop: $(".venues").offset().top},
 	        'slow');
 	});
+	if(!Modernizr.inputtypes.date) {
+		$("#start-date").datepicker();
+		$("#end-date").datepicker();
+	}
 });
 
 function callbackFunction( data ) {
