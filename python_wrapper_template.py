@@ -1,12 +1,10 @@
 import json, requests
 
-url = 'http://api.songkick.com/api/3.0/venues/'
+url = 'http://api.songkick.com/api/3.0/search/venues.json?'
 
 params = dict(
-    origin='Chicago,IL',
-    destination='Los+Angeles,CA',
-    waypoints='Joplin,MO|Oklahoma+City,OK',
-    sensor='false'
+    search_query='930+Club', # Query
+    apikey='s9TgD3sUNEyDRjbc',
 )
 
 resp = requests.get(url=url, params=params)
