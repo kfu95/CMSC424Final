@@ -37,7 +37,7 @@ def getConcertsAtVenue(venue_id, events):
     result = []
     for event in events:
         if ((event['type'] == "Concert")):
-            result.append((event['displayName'],event['id'],event['performance']))
+            result.append((event['displayName'],event['id'],event['performance'],event['start']['date']))
     return result
     
 # For the venue, get a list of events
@@ -79,19 +79,34 @@ def getEvents(venue):
 
 concerts = getEvents(venue)
 
+
+def getArtists(obj):
+    return obj['artist']['displayName']
+
 # now find the artists playing at these events
 
 # Get the artists at these concerts
 def getArtists(concerts):
     artists = []
     
-    def getArtists(obj):
-        return obj['artist']['displayName']
     
     for concert in concerts:
         artists.extend(map(getArtists,concert[2]))
         
     return artists
     
+def getArtistsFromEventIds(event_ids):
+    artists = []
     
+    for event_id in event_ids:
+        url = "http://api.songkick.com/api/3.0/events/" + str(event_id) + ".json?"
+        params = dict(
+            apikey='s9TgD3sUNEyDRjbc',
+        )
+        resp = requests.get(url=url, params=params)
+        data = json.loads(resp.text)
+        
+        data['resultsPage']['results']['event']['performance']
+        
+        
 artists = getArtists(concerts)
