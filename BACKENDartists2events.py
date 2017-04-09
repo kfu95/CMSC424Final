@@ -10,7 +10,7 @@ end_date = sys.argv[3]
 #getting songkick ID for artist
 artist_id = efa.get_artist_id(artist_name)
 
-#getting a list of dictionaries
+# getting a list of dictionaries
 # where each dict is a concert
 concert_dict = efa.get_events_for_artist(artist_id,start_date,end_date)
 
