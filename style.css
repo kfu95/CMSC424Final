@@ -6,12 +6,7 @@ body {
   padding: 0;
 }
 
-#end {
-  position:absolute;
-  bottom:0;
-  height: 100px;
-  width: 100%;
-}
+
 
 .partner {
   bottom:0;
@@ -95,6 +90,25 @@ body {
   box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
 }  
 
+#end {
+  position:absolute;
+  bottom:0;
+  height: 100px;
+  width: 100%;
+}
+
+#events {
+  position:fixed;
+  background-color: white;
+  width:100%;
+  height:1200px;
+  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+
+}
+
 
 
 
@@ -146,6 +160,35 @@ body {
   bottom: 10%;
   height: 50px;
   font-size: 28px;
+}
+
+.waiting {
+  position:absolute;
+  background-color: #f4515e;
+  width:100%;
+  height:1200px;
+  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+.waiting-animation {
+  position:relative;
+  vertical-align: center;
+  top:30%;
+  position:relative;
+  align-self: center;
+
+}
+
+.venues {
+  background-color:#73C8C8;
+  width:100%;
+  height:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
 }
 
 
@@ -349,38 +392,6 @@ input[type="text"] {
   border-top: 9px solid rgb(115,200,200);
 }
 
-.waiting {
-  position:absolute;
-  background-color: #f4515e;
-  width:100%;
-  height:1200px;
-  margin:0;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-}
-
-.waiting-animation {
-  position:relative;
-  vertical-align: center;
-  top:30%;
-  position:relative;
-  align-self: center;
-
-}
-
-.venues {
-  background-color:#73C8C8;
-  width:100%;
-  height:1000px;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-}
-
-
-
-
 
 @keyframes cssload-rotate-one {
   0% {
@@ -524,43 +535,6 @@ input[type="text"] {
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.m-scene {
-  /** Basic styles for an animated element */
-  .scene_element {
-    animation-duration: 0.25s;
-    transition-timing-function: ease-in;
-    animation-fill-mode: both;
-
-  }
-
-  /** An element that fades in */
-  .scene_element--fadein {
-    animation-name: fadeIn;
-  }
-
-  /** An element that fades in and slides up */
-  .scene_element--fadeinup {
-    animation-name: fadeInUp;
-  }
-
-  /** An element that fades in and slides from the right */
-  .scene_element--fadeinright {
-    animation-name: fadeInRight;
   }
 }
 
