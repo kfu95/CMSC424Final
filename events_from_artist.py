@@ -40,11 +40,13 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
     #list to store events 
     events_arr = []
     
+    #variables to store the start/end date
     start_datetime = 'empty'
     end_datetime = 'empty'
     
+    #if start and end date provided, convert to datetime objects
+    #Must be in format YYY-MM-DD
     if start_date != 'empty' and end_date != 'empty':
-        #converting to datetime objects in format "YYYY-MM-DD"
         start_datetime = dt.strptime(start_date, '%Y-%m-%d')
         end_datetime = dt.strptime(end_date,'%Y-%m-%d') 
     
@@ -70,7 +72,8 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
                 'Start Time': start_time,
                 'Artist': artist
             }
-            #append the event dict to the array of events
+            #if start/end date provided, check if event is between those dates
+            #and only add if between them. Otherwise, always add the event
             if start_datetime != 'empty' and end_datetime != 'empty':
                 if is_between_dates(event_datetime,start_datetime,end_datetime):
                     events_arr.append(event_dict)
@@ -84,45 +87,3 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
 
 def is_between_dates(eventdate,startdate,enddate):
     return eventdate >= startdate and eventdate <= enddate
-
-def get_events_for_artist_with_dates(artistid,start_date,end_date):
-    #base URL
-    url = 'http://api.songkick.com/api/3.0/artists/' + str(artistid) + '/calendar.json?apikey=s9TgD3sUNEyDRjbc'
-    
-    #converting to datetime objects in format "YYYY-MM-DD"
-    start_datetime = dt.strptime(start_date, '%Y-%m-%d')
-    end_datetime = dt.strptime(end_date,'%Y-%m-%d')
-    
-    #Calling SongKick API
-    resp = requests.get(url=url)
-    data = json.loads(resp.text)
-    
-    #list to store events 
-    events_arr = []
-    
-    #looping through the events the artist is playing at
-    for event in data['resultsPage']['results']['event']:
-        #if event is a concert, store the event's data in a dict
-        if event['type'] == "Concert": 
-            event_datetime = dt.strptime(event['start']['date'], '%Y-%m-%d')
-            if event_datime > start_datetime and event_datetime < end_datetime:
-                displayName = event['displayName']
-                location = event['location']['city']
-                venue = event['venue']['displayName']
-                date = event['start']['date']
-                start_time = event['start']['time']
-                artist = event['performance']['artist']['displayName']
-
-                event_dict = {
-                    'Loc' : location,
-                    'Venue': venue,
-                    'Event Name': displayName,
-                    'Date': date,
-                    'Start Time': start_time,
-                    'Artist': artist
-                }
-                #append the event dict to the array of events
-                events_arr.append(event_dict)
-                
-    return events_arr
-            
