@@ -52,7 +52,7 @@ def makePlaylistFromSongs(username,song_uris,auth):
     
     payload = {
         'description': 'Taste Test Created By TuneTown', 
-        'public': 'false',
+        'public': 'true',
         'name': 'Taste Test'
     }
     
@@ -60,6 +60,7 @@ def makePlaylistFromSongs(username,song_uris,auth):
     data = json.loads(resp.text)
 
     playlist_id = data['id']
+    playlist_url = data['external_urls']['spotify']
     
     for song_uri in song_uris:
         url = 'https://api.spotify.com/v1/users/' + username + '/playlists/' + playlist_id + '/tracks?'
@@ -72,3 +73,5 @@ def makePlaylistFromSongs(username,song_uris,auth):
         headers = {"Authorization":"Bearer " + auth}
         
         resp = requests.post(url=url, params=params, headers=headers)
+        
+    return playlist_url
