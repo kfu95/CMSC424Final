@@ -36,8 +36,12 @@ $(document).ready(function() {
 	        var eventItem = $('<div/>',{class: 'eventItem'});
 	        
 	        var eventName = $('<p/>');
+	        var eventLink = $('<a/>',{
+	        	href: 'artists?event_ids=' + cur.id
+	        });
 	        
-	        eventName.text(cur.name);
+	        eventLink.text(cur.name);
+	        eventName.append(eventLink);
 	        eventItem.append(eventName);
 	        
 	        events.append(eventItem);
@@ -45,7 +49,7 @@ $(document).ready(function() {
     	}
     	
         $('html,body').animate({
-			scrollTop: $("#events").offset().top
+			scrollTop: $("#eventList").offset().top
 		}, 'slow');
 		
       });

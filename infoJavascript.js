@@ -1,5 +1,23 @@
 $(document).ready(function() {
-    
+    if ($('.artistImg').length == 0) {
+         
+         console.log("Loading");
+         
+         displayArtists([
+                     {"name":"Kenrick Lamar",    "img":"kendrick.jpeg" },
+                     {"name":"John Mayer",       "img":"john.jpeg"},
+                     {"name":"Adele",            "img":"adele.jpeg"},
+                     {"name":"Martin Garrix",    "img":"martin.jpeg"}
+	               ]);
+                 
+         console.log("Loaded");
+     
+         
+     } else {
+         console.log("Not Loading");
+     }
+	
+	
     $('.artistImg').each(function(){
         $(this).mouseover(function() {
             $(this).css('width','250px');

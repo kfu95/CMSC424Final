@@ -35,21 +35,21 @@
   		</div>
   		<div id="venues-text">
 			<h2>Which venue will you be going to?</h2>
-			<!-- <form action = "/events" method = "GET"> -->
-			<input id="venue-name" name='venue' id='venue' type="text" placeholder="Venue Name"/>
+			<form id="getEvents" action = "/events" method = "GET">
+			<input name='venue' id='venue' type="text" placeholder="Venue Name"/>
 		
 			<h2>Which venue will you be going to?</h2> 
 			
 			<h2>What range of dates are you considering?</h2>
-			<h3>Start Date:</h3><input name='startdate' id="start-date" type="date"/>
-			<h3>End Date:</h3><input name='enddate' id="end-date" type="date"/>
+			<h3>Start Date:</h3><input name='startdate' id="startdate" type="date"/>
+			<h3>End Date:</h3><input name='enddate' id="enddate" type="date"/>
 			</br>
 			</br>
 			</br>
 			</br>
 			
-			<button class="button withanimation"><span>Submit</span></button>
-			<!-- </form> -->
+			<button id="submitVenue" class="button withanimation"><span>Submit</span></button>
+			</form>
 		</div>
 	</div>
 	<div>
@@ -75,11 +75,6 @@
 		</div>
 	</div>
 	<div id="eventList">
-		<div class="eventItem">
-			<p class="eventName">Migos at 9:30</p>
-			<p class="eventDate">9/20/20</p>
-		</div>
-		<hr>
 	</div>
 </body>
 </html>
