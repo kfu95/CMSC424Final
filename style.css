@@ -538,4 +538,19 @@ input[type="text"] {
   }
 }
 
+#eventList {
+  margin: 0 auto;
+  margin-top: -100px;
+  width: 300px;
+}
+
+.eventItem {
+  margin: 0 auto;
+  text-align: center;
+}
+
+hr {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
