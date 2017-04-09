@@ -6,12 +6,11 @@ body {
   padding: 0;
 }
 
-#end {
-  position:absolute;
-  bottom:0;
-  height: 100px;
-  width: 100%;
+* {
+  margin:0;
+  padding:0;
 }
+
 
 .partner {
   bottom:0;
@@ -67,16 +66,17 @@ body {
 }
 
 #venues-text {
-  margin: 0 auto;
+  margin: 15px;
   position: relative;
   text-align: center;
-  top: 10%;
+  top: 15%;
   width: 100%;
+  padding:10px;
 }
 
 #venue-name, #start-date, #end-date {
 
-  margin: 10px;
+  margin: 15px;
   opacity: 0.8;
   border: 10px solid #eee;
   
@@ -94,6 +94,25 @@ body {
   -moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
   box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
 }  
+
+#end {
+  position:relative;
+  bottom:0;
+  height: 100px;
+  width: 100%;
+}
+
+#events {
+  position:fixed;
+  background-color: white;
+  width:100%;
+  height:1200px;
+  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+
+}
 
 
 
@@ -148,6 +167,30 @@ body {
   font-size: 28px;
 }
 
+.waiting {
+  line-height: 0px;
+  position:relative;
+  background-color: #f4515e;
+  width:100%;
+  height:1000px;
+  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+#waiting-text {
+  padding-top: 150px;
+}
+
+.waiting-animation {
+  position:relative;
+  vertical-align: center;
+  top:35%;
+  position:relative;
+  align-self: center;
+
+}
 
 .venues {
   background-color:#73C8C8;
@@ -156,7 +199,9 @@ body {
   margin-left:auto;
   margin-right:auto;
   text-align:center;
+  vertical-align:top;
 }
+
 
 .arrow {
   position: absolute;
@@ -349,38 +394,6 @@ input[type="text"] {
   border-top: 9px solid rgb(115,200,200);
 }
 
-.waiting {
-  position:absolute;
-  background-color: #f4515e;
-  width:100%;
-  height:1200px;
-  margin:0;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-}
-
-.waiting-animation {
-  position:relative;
-  vertical-align: center;
-  top:30%;
-  position:relative;
-  align-self: center;
-
-}
-
-.venues {
-  background-color:#73C8C8;
-  width:100%;
-  height:1000px;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-}
-
-
-
-
 
 @keyframes cssload-rotate-one {
   0% {
@@ -527,41 +540,20 @@ input[type="text"] {
   }
 }
 
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
+#eventList {
+  position: absolute;
+  margin-top: 1200px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width:100%;
 }
 
-.m-scene {
-  /** Basic styles for an animated element */
-  .scene_element {
-    animation-duration: 0.25s;
-    transition-timing-function: ease-in;
-    animation-fill-mode: both;
-
-  }
-
-  /** An element that fades in */
-  .scene_element--fadein {
-    animation-name: fadeIn;
-  }
-
-  /** An element that fades in and slides up */
-  .scene_element--fadeinup {
-    animation-name: fadeInUp;
-  }
-
-  /** An element that fades in and slides from the right */
-  .scene_element--fadeinright {
-    animation-name: fadeInRight;
-  }
+.eventItem {
+  text-align: center;
 }
 
+hr {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 

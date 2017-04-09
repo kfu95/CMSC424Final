@@ -1,7 +1,6 @@
 import sys,requests,os
 
 # https://developer.spotify.com/web-api/authorization-guide/#authorization-code-flow
-# BQDBVi-2Y7N0UiSvQkepaiamrq5D2AUYEibHUyRQVukHxKGjQrM7AuwgflgQl6qY6zW-XG8sVGTaMa0B51iYxYboKAPJL7vYd7ZJ-eT81QZ9cIdqlXAlAhnvEuChAe-wVxXGnrFspdsyltVrpTkZOsJvRyw96Pp5r33iVAC8hQBTI2Nne1tmMqw1qxZjn5x0RQuuQ213TjGK19sfWV9kvUS8X9iL3J7NJdjCtxIiTbWwOLykbKiGmrxm9TNT
 
 
 os.environ["REFRESHTOKEN"] = 'SpotifyEmpty'
