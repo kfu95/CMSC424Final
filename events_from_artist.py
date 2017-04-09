@@ -24,7 +24,7 @@ def get_artist_id(artistName):
     return artist_id
 
 
-#getting an artist's event calendar: 
+# getting an artist's event calendar: 
 
 # given an artist's songkick ID, 
 # make a dict/hash of data for each event 
@@ -44,8 +44,8 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
     start_datetime = 'empty'
     end_datetime = 'empty'
     
-    #if start and end date provided, convert to datetime objects
-    #Must be in format YYY-MM-DD
+    # if start and end date provided, convert to datetime objects.
+    # Provided date strings must be in format YYY-MM-DD
     if start_date != 'empty' and end_date != 'empty':
         start_datetime = dt.strptime(start_date, '%Y-%m-%d')
         end_datetime = dt.strptime(end_date,'%Y-%m-%d') 
