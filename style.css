@@ -1,22 +1,23 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #000;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
 
-
-
-footer {
-  background-color: white;
-  margin: 0;
-  padding: 0;
+#end {
+  position:absolute;
+  bottom:0;
+  height: 100px;
+  width: 100%;
 }
 
 .partner {
+  bottom:0;
+  position: relative;
   background-color: black;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   height: 100px;
   width: 100%;
@@ -151,8 +152,7 @@ footer {
 .venues {
   background-color:#73C8C8;
   width:100%;
-  height:900px;
-  margin:0 auto;
+  height:1000px;
   margin-left:auto;
   margin-right:auto;
   text-align:center;
@@ -171,7 +171,7 @@ footer {
   
 }
 
-.arrow:hover .arrow-responsive{
+.arrow:hover .arrow-resonsive{
   opacity:1;
 }
 
@@ -254,12 +254,12 @@ h4 {
 }
 
 h5 {
-  color: white;
+  top:200px;
+  color: #73C8C8;
   font-family: 'Quicksand', sans-serif;
-  font-size: 28px;
+  font-size: 50px;
   font-weight: 400;
-  line-height: 30px;
-  margin: 10px 0px;
+  line-height: 50px;
   text-align: center;
 }
 
@@ -287,21 +287,281 @@ input[type="text"] {
   color: black;
 }
 
-#overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background: #000;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
+.cssload-loader {
+  position: relative;
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+  perspective: 2500px;
 }
-#loading {
-    width: 50px;
-    height: 57px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -28px 0 0 -25px;
+
+.cssload-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;  
 }
+
+.cssload-inner.cssload-one {
+  left: 0%;
+  top: 0%;
+  animation: cssload-rotate-one 0.85s linear infinite;
+    -o-animation: cssload-rotate-one 0.85s linear infinite;
+    -ms-animation: cssload-rotate-one 0.85s linear infinite;
+    -webkit-animation: cssload-rotate-one 0.85s linear infinite;
+    -moz-animation: cssload-rotate-one 0.85s linear infinite;
+  border-bottom: 9px solid rgb(115,200,200);
+}
+
+.cssload-inner.cssload-two {
+  right: 0%;
+  top: 0%;
+  animation: cssload-rotate-two 0.85s linear infinite;
+    -o-animation: cssload-rotate-two 0.85s linear infinite;
+    -ms-animation: cssload-rotate-two 0.85s linear infinite;
+    -webkit-animation: cssload-rotate-two 0.85s linear infinite;
+    -moz-animation: cssload-rotate-two 0.85s linear infinite;
+  border-right: 9px solid rgb(115,200,200);
+}
+
+.cssload-inner.cssload-three {
+  right: 0%;
+  bottom: 0%;
+  animation: cssload-rotate-three 0.85s linear infinite;
+    -o-animation: cssload-rotate-three 0.85s linear infinite;
+    -ms-animation: cssload-rotate-three 0.85s linear infinite;
+    -webkit-animation: cssload-rotate-three 0.85s linear infinite;
+    -moz-animation: cssload-rotate-three 0.85s linear infinite;
+  border-top: 9px solid rgb(115,200,200);
+}
+
+.waiting {
+  position:absolute;
+  background-color: #f4515e;
+  width:100%;
+  height:1200px;
+  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+.waiting-animation {
+  position:relative;
+  vertical-align: center;
+  top:30%;
+  position:relative;
+  align-self: center;
+
+}
+
+.venues {
+  background-color:#73C8C8;
+  width:100%;
+  height:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+
+
+
+
+@keyframes cssload-rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@-o-keyframes cssload-rotate-one {
+  0% {
+    -o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    -o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@-ms-keyframes cssload-rotate-one {
+  0% {
+    -ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    -ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-rotate-one {
+  0% {
+    -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes cssload-rotate-one {
+  0% {
+    -moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@-o-keyframes cssload-rotate-two {
+  0% {
+    -o-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    -o-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@-ms-keyframes cssload-rotate-two {
+  0% {
+    -ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    -ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-rotate-two {
+  0% {
+    -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes cssload-rotate-two {
+  0% {
+    -moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+@-o-keyframes cssload-rotate-three {
+  0% {
+    -o-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    -o-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+@-ms-keyframes cssload-rotate-three {
+  0% {
+    -ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    -ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-rotate-three {
+  0% {
+    -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+@-moz-keyframes cssload-rotate-three {
+  0% {
+    -moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.m-scene {
+  /** Basic styles for an animated element */
+  .scene_element {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+
+  }
+
+  /** An element that fades in */
+  .scene_element--fadein {
+    animation-name: fadeIn;
+  }
+
+  /** An element that fades in and slides up */
+  .scene_element--fadeinup {
+    animation-name: fadeInUp;
+  }
+
+  /** An element that fades in and slides from the right */
+  .scene_element--fadeinright {
+    animation-name: fadeInRight;
+  }
+}
+
+
