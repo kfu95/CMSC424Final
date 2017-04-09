@@ -1,3 +1,6 @@
+#File created by Vikram Yabannavra
+#4/8/2017
+
 import events_from_artist as efa
 import json
 import sys
