@@ -51,6 +51,37 @@ app.get('/events', function (req, res) {
    
 })
 
+app.get('/events', function (req, res) {
+   
+   // GET THE EVENT ID(S) TO GET ARTISTS FOR
+   var artist = req.query.artist;
+    var startdate = req.query.startdate;
+   var enddate = req.query.enddate;
+   
+   console.log(req.query);
+   
+   console.log(artist);
+   
+   // PYTHON SCRIPT TO GET ARTISTS FROM EVENT IDS
+   var spawn = require("child_process").spawn;
+   var process = spawn('python',["BACKENDartists2events.py", artist,startdate,enddate]);
+   
+   str = {data:""}
+   
+   process.stdout.on('data', function (data){
+       // GET THE DATA
+        str.data += data.toString();
+   });
+   
+   process.on('close', function(code) {
+        // RENDER OUR EMBEDDED JAVASCRIPT WITH OUR JSON DATA
+        response = JSON.parse(str.data);
+        res.end(JSON.stringify(response));
+    });
+        
+   
+})
+
 app.get('/artists', function (req, res) {
    
    // GET THE EVENT ID(S) TO GET ARTISTS FOR
