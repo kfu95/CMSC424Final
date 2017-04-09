@@ -19,11 +19,12 @@ $(document).ready(function() {
 	});
 
 	if(!Modernizr.inputtypes.date) {
-		$("#start-date").datepicker();
+		$("#start-date").datepicker({minDate:0});
 		$("#end-date").datepicker();
 	}
 
 });
+
 
 function displayEvents(eventsList) {
 	var events = $("#eventsList");
