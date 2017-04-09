@@ -10,18 +10,14 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.6.0/sweetalert2.min.js"</script>
-  <script type="text/javascript" src="jquery.smoothstate.js"></script>
   <script type="text/javascript" src="jquery-ui-1.10.3/ui/jquery.ui.datepicker.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="demo.css" />
   <script type="text/javascript" src="javascript.js"></script>
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 <body>
-	<div id="loading"><div id="loading_anim"></div></div>
 
   	<div class="header">
     	<div id="header-text"> <!--Add an id to this div -->
@@ -41,6 +37,8 @@
 			<h2>Which venue will you be going to?</h2>
 			<form action = "/events" method = "GET">
 			<input id="venue-name" name='venue' id='venue' type="text" placeholder="Venue Name"/>
+		
+			<h2>Which venue will you be going to?</h2> 
 			
 			<h2>What range of dates are you considering?</h2>
 			<h3>Start Date:</h3><input name='startdate' id="start-date" type="date"/>
@@ -49,34 +47,20 @@
 			</br>
 			</br>
 			</br>
-			<button class="button withanimation"><span>Submit</span></button>
+			<button class="button"><span>Submit</span></button>
 			</form>
 		</div>
 	</div>
-	<div>
-		<div class="waiting">
-			<h5>Please give us a moment while we find the right concerts for you!</h5>
-			<div class = "waiting-animation">
-				<div class="cssload-loader">
-				<div class="cssload-inner cssload-one"></div>
-				<div class="cssload-inner cssload-two"></div>
-				<div class="cssload-inner cssload-three"></div>
-			</div>
-		</div>
-		<div id= "end">
-			<div class = "partner"> 
-				<div id = "footer-text">
-				    <h4>Developed at Bitcamp 2017 by Ayman Karim, Vik Yabannavar, Michael Nguyen, and Kevin Fu 
-				    </h4>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h1>Here are some concerts that you might like!</h1>
-		<ul id = "eventsList">
-			
-		</ul>
-	</div>
 </body>
+
+
+<footer>
+	<div class = "partner"> <!--Add a class to this div -->
+		<div id = "footer-text">
+		    <h4>Developed at Bitcamp 2017 by Ayman Karim, Vik Yabannavar, Michael Nguyen, and Kevin Fu 
+		    </h4>
+		</div>
+	</div>
+</footer>
+
 </html>
