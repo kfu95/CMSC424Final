@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
-var d = {}
-var wait = require('wait.for');
+var d = {};
+var passport = require('passport');
+var SpotifyStrategy = require('passport-spotify').Strategy;
 
 // express, npm
 app.use(express.static(__dirname));
@@ -9,6 +10,19 @@ app.use(express.static(__dirname+'/styles.css'));
 app.get('/Bitcamp.html', function (req, res) {
    res.sendFile( __dirname + "/" + "Bitcamp.html" );
 })
+
+// spotify
+passport.use(new SpotifyStrategy({
+    clientID: "5182a98e4c0742f78fe0f764ebeaab97",
+    clientSecret: "dcc81899e59c4a2daa0cf92affc64760",
+    callbackURL: "http://localhost:" + process.env.PORT + "/Bitcamp.html"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ spotifyId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
 
 app.set('view engine', 'ejs');
 
