@@ -29,8 +29,6 @@ app.get('/events', function (req, res) {
     });
    
     process.on('close', function(code) {
-        console.log(str.data)
-        console.log("\n")
    
        var response = {
           venue:venue,
@@ -60,10 +58,19 @@ app.get('/artists', function (req, res) {
    var spawn = require("child_process").spawn;
    var process = spawn('python',["BACKENDevents2artists.py", event_ids]);
    
+   str = {data:""}
+   
    process.stdout.on('data', function (data){
         console.log("Rendering");
-        res.render('ConcertInfo', { artists: JSON.parse(data.toString()) });
+        str.data += data.toString();
    });
+   
+   process.on('close', function(code) {
+   
+       res.render('ConcertInfo', { artists: JSON.parse(str.data) });
+   
+    });
+        
    
    //res.end(JSON.stringify(response));
    

@@ -72,7 +72,7 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
             }
             #append the event dict to the array of events
             if start_datetime != 'empty' and end_datetime != 'empty':
-                if event_datetime >= start_datetime and event_datetime <= end_datetime:
+                if is_between_dates(event_datetime,start_datetime,end_datetime):
                     events_arr.append(event_dict)
             else: #if empty, add all
                 print('entered else')
@@ -83,7 +83,7 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
     
 
 def is_between_dates(eventdate,startdate,enddate):
-    return eventdate >= stardate and eventdate <= enddate
+    return eventdate >= startdate and eventdate <= enddate
 
 def get_events_for_artist_with_dates(artistid,start_date,end_date):
     #base URL
