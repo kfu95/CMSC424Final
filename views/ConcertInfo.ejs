@@ -14,6 +14,13 @@
   <script type='text/javascript' src='../infoJavascript.js'></script>
 </head>
 
+<%
+	function getIDs(artist) {
+		return artist.id
+	}
+%>
+
+
 <body>
 	<div class="header"></div>
 	<br/>
@@ -22,14 +29,14 @@
 	</div>
 	<div class="instructions">
 		<h2>The best artists in the work. Hear them live!
-		<h2>Click on an artist to hear their playlist, or click here to listen to a conjoined playlist!
+		<h2>Click on an artist to hear their playlist, or click <a href="playlist?artists=<%= artists.map(getIDs).join() %>">here</a> to listen to a conjoined playlist!
 	</div>
 	<br/>
 	<div id="artistList">
 		<% for(var i=0; i<artists.length; i++) {%>
 		   <div>
 		   		<img class="artistImg" id="img1<%= i + 1 %>" src="<%= artists[i].img %>" height="200" width="200"/>
-		   		<h3><%= artists[i].name %></h3>
+		   		<h3><a class="artistPlaylist" href="/playlist?artists=<%= artists[i].id %>"><%= artists[i].name %></a></h3>
 		   </div>
 		<% } %>
 		<!--
