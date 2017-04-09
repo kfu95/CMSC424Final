@@ -5,7 +5,7 @@ from datetime import datetime as dt
 
 #getting the artist's songkick ID:
 
-#given an artist's name as a string,
+#given an artist's nwame as a string,
 #search for the artist's ID and return it
 def get_artist_id(artistName):
     #base URL
