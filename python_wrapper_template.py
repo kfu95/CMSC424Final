@@ -86,7 +86,7 @@ def getArtists(obj):
 # now find the artists playing at these events
 
 # Get the artists at these concerts
-def getArtists(concerts):
+def getArtistsFromConcerts(concerts):
     artists = []
     
     
@@ -106,7 +106,9 @@ def getArtistsFromEventIds(event_ids):
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)
         
-        data['resultsPage']['results']['event']['performance']
+        artists.extend(map(getArtists,data['resultsPage']['results']['event']['performance']))
+        
+    return artists
         
         
-artists = getArtists(concerts)
+artists = getArtistsFromConcerts(concerts)

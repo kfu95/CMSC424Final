@@ -10,8 +10,15 @@ io = StringIO()
 
 events = sys.argv[1].split(',')
 
-artists = getArtistsFromEventIds(events)
+artists = ayman.getArtistsFromEventIds(events)
+artistSpotifyInfo = map(sp.getArtistSpotifyInfo,artists)
+artists = []
+for artist in artistSpotifyInfo:
+    if artist != None:
+        artists.append(artist)
+        
 
-json.dump(artists, io)
+json.dump(artistSpotifyInfo, io)
 
 print(io.getvalue())
+sys.stdout.flush()

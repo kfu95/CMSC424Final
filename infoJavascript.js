@@ -1,14 +1,4 @@
 $(document).ready(function() {
-    console.log("Loading");
-    
-    displayArtists([
-                    {"name":"Kenrick Lamar",    "img":"kendrick.jpeg" },
-                    {"name":"John Mayer",       "img":"john.jpeg"},
-                    {"name":"Adele",            "img":"adele.jpeg"},
-                    {"name":"Martin Garrix",    "img":"martin.jpeg"}
-                ]);
-                
-    console.log("Loaded");
     
     $('.artistImg').each(function(){
         $(this).mouseover(function() {

@@ -53,29 +53,37 @@ def get_events_for_artist(artistid,start_date = 'empty',end_date = 'empty'):
         #if event is a concert, store the event's data in a dict
         if event['type'] == "Concert": 
             date = event['start']['time']
-            
             displayName = event['displayName']
             location = event['location']['city']
             venue = event['venue']['displayName']
             date = event['start']['date']
-            event_datetime = dt.strptime(date,'%y-%m-%d')
+            event_datetime = dt.strptime(date,'%Y-%m-%d')
             start_time = event['start']['time']
             
             artist = event['performance'][0]['artist']['displayName']
-            if start_datetime != 'empty' and end_datetime != 'empty' \
-            and event_datetime >= start_datetime and event_datetime <= end_datetime:
-                event_dict = {
-                    'Loc' : location,
-                    'Venue': venue,
-                    'Event Name': displayName,
-                    'Date': date,
-                    'Start Time': start_time,
-                    'Artist': artist
-                }
-                #append the event dict to the array of events
-                events_arr.append(event_dict)
+            
+            event_dict = {
+                'Loc' : location,
+                'Venue': venue,
+                'Event Name': displayName,
+                'Date': date,
+                'Start Time': start_time,
+                'Artist': artist
+            }
+            #append the event dict to the array of events
+            if start_datetime != 'empty' and end_datetime != 'empty':
+                if event_datetime >= start_datetime and event_datetime <= end_datetime:
+                    events_arr.append(event_dict)
+            else: #if empty, add all
+                print('entered else')
+                print('\n')
+                events_arr.append(event_dict) 
             
     return events_arr
+    
+
+def is_between_dates(eventdate,startdate,enddate):
+    return eventdate >= stardate and eventdate <= enddate
 
 def get_events_for_artist_with_dates(artistid,start_date,end_date):
     #base URL

@@ -28,6 +28,8 @@ def eventsInRange(events,startDate,endDate):
     return result
 
 concertsInRange = eventsInRange(concerts,sys.argv[2],sys.argv[3])
-json.dump(concertsInRange, io)
+json.dump(concertsInRange[:10], io)
 
 print(io.getvalue())
+
+sys.stdout.flush()

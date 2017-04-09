@@ -1,13 +1,16 @@
 var express = require('express');
 var app = express();
 var d = {}
+var wait = require('wait.for');
 
-
-app.use(express.static('public'));
+// express, npm
+app.use(express.static(__dirname));
 app.use(express.static(__dirname+'/styles.css'));
 app.get('/Bitcamp.html', function (req, res) {
    res.sendFile( __dirname + "/" + "Bitcamp.html" );
 })
+
+app.set('view engine', 'ejs');
 
 app.get('/events', function (req, res) {
    // Prepare output in JSON format
@@ -18,19 +21,27 @@ app.get('/events', function (req, res) {
    var spawn = require("child_process").spawn;
    var process = spawn('python',["BACKENDvenue2events.py", venue, startdate, enddate]);
    
-   process.stdout.on('data', function (data){
-       
+   str = {data:""}
+   
+    process.stdout.on('data', function (data){
+        console.log(str.data.length)
+        str.data += data.toString()
+    });
+   
+    process.on('close', function(code) {
+        console.log(str.data)
+        console.log("\n")
+   
        var response = {
           venue:venue,
-          data:data.toString()
+          data:JSON.parse(str.data)
        };
        
-       console.log(req.query);
-       console.log(res);
-       console.log(response);
        
       res.end(JSON.stringify(response));
-   });
+   
+    });
+    
    
    //res.end(JSON.stringify(response));
    
@@ -43,17 +54,18 @@ app.get('/artists', function (req, res) {
 
    
    console.log(req.query);
-   console.log(res);
+   
+   console.log(event_ids);
    
    var spawn = require("child_process").spawn;
    var process = spawn('python',["BACKENDevents2artists.py", event_ids]);
    
    process.stdout.on('data', function (data){
-      res.end(data.toString());
+        console.log("Rendering");
+        res.render('ConcertInfo', { artists: JSON.parse(data.toString()) });
    });
    
    //res.end(JSON.stringify(response));
-   
    
 })
 
